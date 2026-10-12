@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class 9 Physics Hub | Anuj</title>
+  <style>
+    :root {
+      --primary: #123c69;
+      --primary-dark: #0b2747;
+      --secondary: #f4f7fb;
+      --accent: #f59e0b;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #dfe7f1;
+      --card: #ffffff;
+      --success: #2e7d32;
+      --shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
+      --danger: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* ========== HEADER & NAVIGATION ========== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10, 28, 52, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #e5eefb;
+      font-weight: 500;
+    }
+
+    .nav-center a {
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-center a:hover {
+      opacity: 1;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .author-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .author-badge .circle {
+      width: 8px;
+      height: 8px;
+      background: #fbbf24;
+      border-radius: 50%;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #e5eefb;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      background: linear-gradient(135deg, #0a1d36 0%, #123c69 52%, #1d4f8b 100%);
+      color: #fff;
+      padding: 90px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #1f2937;
+      box-shadow: 0 8px 18px rgba(245, 158, 11, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: white;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.28);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .stat {
+      min-width: 120px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .mini-panel {
+      background: rgba(255, 255, 255, 0.93);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .mini-panel h3 {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .mini-panel ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--text);
+      font-size: 0.96rem;
+    }
+
+    .mini-panel li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    /* ========== ABOUT AUTHOR SECTION ========== */
+    .about-author {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: var(--shadow);
+      margin-top: 36px;
+    }
+
+    .about-author h2 {
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .author-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #f9fafb;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .info-icon {
+      font-size: 1.4rem;
+      min-width: 24px;
+    }
+
+    .info-content h4 {
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .info-content p {
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .author-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      font-size: 0.95rem;
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-email {
+      background: #dbeafe;
+      color: #0369a1;
+    }
+
+    .contact-whatsapp {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    /* ========== GENERAL SECTIONS ========== */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .quick-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(18, 60, 105, 0.25);
+    }
+
+    .quick-card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(18, 60, 105, 0.08);
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .quick-card h3 {
+      font-size: 1.07rem;
+      margin-bottom: 8px;
+      color: var(--primary-dark);
+    }
+
+    .quick-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* ========== SYLLABUS SECTION ========== */
+    .syllabus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .chapter-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .chapter-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .chapter-card .topics {
+      margin: 16px 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .chapter-card .topics li {
+      margin-bottom: 6px;
+    }
+
+    /* ========== FILE LIST & STYLING ========== */
+    .file-section {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .file-section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .file-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .file-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ecf3ff 0%, #f0f9ff 100%);
+      border: 1px solid #d8e5ff;
+      color: var(--primary-dark);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .file-link:hover {
+      background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+      border-color: #bfdbfe;
+      transform: translateX(2px);
+    }
+
+    .file-link::before {
+      content: "📥";
+    }
+
+    /* ========== RESOURCES SECTION ========== */
+    .resources-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 20px;
+    }
+
+    .filter-btn {
+      background: #eef3f9;
+      color: var(--primary-dark);
+      border: 1px solid #d9e1ee;
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .resources-table-wrap {
+      overflow-x: auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+    }
+
+    thead {
+      background: #eff5fb;
+    }
+
+    th,
+    td {
+      padding: 15px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--primary-dark);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    td {
+      color: var(--text);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #edf6ff;
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .resource-row.hidden {
+      display: none;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0b1d34;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status {
+      background: rgba(255, 193, 7, 0.15);
+      color: #fbbf24;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 193, 7, 0.25);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .quick-links,
+      .syllabus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0 10px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 12px 0;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 70px;
+      }
+
+      .nav-right {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .author-info {
+        grid-template-columns: 1fr;
+      }
+
+      .author-contact {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .contact-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">Physics Hub</a>
+
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#syllabus">Syllabus</a>
+        <a href="#resources">Resources</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="author-badge">
+          <span class="circle"></span>
+          By Anuj
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow" style="color: rgba(255, 255, 255, 0.75);">Class 9 • Science</div>
+          <h1>Class 9 Physics Made Simple</h1>
+          <p>
+            Explore the complete Class 9 Physics curriculum, organized chapter-wise with notes,
+            homework, and lab materials. Everything is structured to help you stay on track and revise efficiently.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#syllabus" class="btn btn-primary">View Syllabus</a>
+            <a href="#resources" class="btn btn-secondary">Browse Resources</a>
+            <!-- PASTE WHATSAPP LINK HERE -->
+            <a href="#" class="btn btn-whatsapp">💬 Chat on WhatsApp</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>5</strong>
+              <span>Core chapters</span>
+            </div>
+            <div class="stat">
+              <strong>20+</strong>
+              <span>Study files</span>
+            </div>
+            <div class="stat">
+              <strong>1</strong>
+              <span>Organized hub</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="mini-panel">
+            <h3>Curriculum Overview</h3>
+            <ul>
+              <li><span class="dot"></span> Motion and its applications</li>
+              <li><span class="dot"></span> Force and laws of motion</li>
+              <li><span class="dot"></span> Gravitation and weight</li>
+              <li><span class="dot"></span> Work, energy, and power</li>
+              <li><span class="dot"></span> Sound and wave phenomena</li>
+            </ul>
+          </div>
+
+          <div class="mini-panel">
+            <h3>Quick Access</h3>
+            <ul>
+              <li><span class="dot"></span> Chapter notes</li>
+              <li><span class="dot"></span> Assignments</li>
+              <li><span class="dot"></span> Lab guides</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT AUTHOR SECTION -->
+    <section style="padding: 60px 0;">
+      <div class="container">
+        <div class="about-author">
+          <h2>👋 About the Author</h2>
+
+          <div class="author-info">
+            <div class="info-item">
+              <div class="info-icon">👤</div>
+              <div class="info-content">
+                <h4>Name</h4>
+                <p>Anuj</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">🎂</div>
+              <div class="info-content">
+                <h4>Age</h4>
+                <p>13</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-content">
+                <h4>Email</h4>
+                <!-- PASTE YOUR EMAIL LINK HERE -->
+                <p><a href="mailto:anujpinkimohan@gmail.com" style="color: var(--primary-dark); font-weight: 600;">anujpinkimohan@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="author-contact">
+            <!-- PASTE YOUR EMAIL CONTACT BUTTON LINK HERE -->
+            <a href="mailto:anujpinkimohan@gmail.com" class="contact-btn contact-email">
+              📧 Send Email
+            </a>
+
+            <!-- PASTE YOUR WHATSAPP CONTACT BUTTON LINK HERE -->
+            <a href="#" class="contact-btn contact-whatsapp">
+              💬 Message on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="syllabus">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Learning roadmap</div>
+          <h2>Class 9 Physics Syllabus</h2>
+          <p>
+            A structured view of all major chapters, important concepts, and the assigned study materials for each unit.
+          </p>
+        </div>
+
+        <div class="quick-links">
+          <div class="quick-card">
+            <div class="icon">📘</div>
+            <h3>Chapter Notes</h3>
+            <p>Concise theory summaries and revision sheets.</p>
+          </div>
+
+          <div class="quick-card">
+            <div class="icon">📝</div>
+            <h3>Assignments</h3>
+            <p>Homework, problem sets, and practice questions.</p>
+          </div>
+
+          <div class="quick-card">
+            <div class="icon">🧪</div>
+            <h3>Lab Files</h3>
+            <p>Practical procedures and experiment instructions.</p>
+          </div>
+
+          <div class="quick-card">
+            <div class="icon">✅</div>
+            <h3>Revision</h3>
+            <p>Checklist-driven review before tests and exams.</p>
+          </div>
+        </div>
+
+        <div class="syllabus-grid" style="margin-top: 36px;">
+          <!-- CHAPTER 1: MOTION -->
+          <article class="chapter-card">
+            <h3>1. Motion</h3>
+            <p>Understanding speed, velocity, acceleration, and graphical representation of motion.</p>
+            <ul class="topics">
+              <li>Distance and displacement</li>
+              <li>Uniform and non-uniform motion</li>
+              <li>Graphs of motion</li>
+              <li>Equations of motion</li>
+            </ul>
+
+            <div class="file-section">
+              <div class="file-section-title">📚 Chapter Materials</div>
+              <div class="file-list">
+                <!-- PASTE YOUR MOTION NOTES PDF LINK HERE -->
+                <a href="files/motion-notes.pdf" target="_blank" class="file-link">📄 Chapter Notes (PDF)</a>
+
+                <!-- PASTE YOUR MOTION ASSIGNMENT 1 LINK HERE -->
+                <a href="files/motion-assignment-1.pdf" target="_blank" class="file-link">📝 Assignment_1.pdf</a>
+
+                <!-- PASTE YOUR MOTION LAB GUIDE LINK HERE -->
+                <a href="files/motion-lab-guide.docx" target="_blank" class="file-link">🧪 Lab_Experiment_Guide.docx</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CHAPTER 2: FORCE AND LAWS OF MOTION -->
+          <article class="chapter-card">
+            <h3>2. Force and Laws of Motion</h3>
+            <p>Exploring forces, inertia, momentum, and Newton's laws of motion.</p>
+            <ul class="topics">
+              <li>Balanced and unbalanced forces</li>
+              <li>Inertia and mass</li>
+              <li>Newton's three laws</li>
+              <li>Momentum and everyday applications</li>
+            </ul>
+
+            <div class="file-section">
+              <div class="file-section-title">📚 Chapter Materials</div>
+              <div class="file-list">
+                <!-- PASTE YOUR FORCE AND LAWS NOTES PDF LINK HERE -->
+                <a href="files/force-laws-notes.pdf" target="_blank" class="file-link">📄 Chapter Notes (PDF)</a>
+
+                <!-- PASTE YOUR FORCE AND LAWS ASSIGNMENT LINK HERE -->
+                <a href="files/force-laws-assignment.pdf" target="_blank" class="file-link">📝 Assignment_2.pdf</a>
+
+                <!-- PASTE YOUR FORCE AND LAWS LAB REPORT LINK HERE -->
+                <a href="files/force-lab-report.docx" target="_blank" class="file-link">🧪 Lab_Report_Template.docx</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CHAPTER 3: GRAVITATION -->
+          <article class="chapter-card">
+            <h3>3. Gravitation</h3>
+            <p>Study of universal gravitation, motion under gravity, and free fall.</p>
+            <ul class="topics">
+              <li>Universal law of gravitation</li>
+              <li>Mass and weight</li>
+              <li>Acceleration due to gravity</li>
+              <li>Floatation and buoyancy</li>
+            </ul>
+
+            <div class="file-section">
+              <div class="file-section-title">📚 Chapter Materials</div>
+              <div class="file-list">
+                <!-- PASTE YOUR GRAVITATION NOTES PDF LINK HERE -->
+                <a href="files/gravitation-notes.pdf" target="_blank" class="file-link">📄 Chapter Notes (PDF)</a>
+
+                <!-- PASTE YOUR GRAVITATION HOMEWORK LINK HERE -->
+                <a href="files/gravitation-homework.pdf" target="_blank" class="file-link">📝 Homework_Set.pdf</a>
+
+                <!-- PASTE YOUR GRAVITATION LAB GUIDE LINK HERE -->
+                <a href="files/gravitation-lab.docx" target="_blank" class="file-link">🧪 Gravity_Experiment_Guide.docx</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CHAPTER 4: WORK AND ENERGY -->
+          <article class="chapter-card">
+            <h3>4. Work and Energy</h3>
+            <p>Concepts of work, energy, power, and transformations between different forms of energy.</p>
+            <ul class="topics">
+              <li>Work and its unit</li>
+              <li>Kinetic and potential energy</li>
+              <li>Power and efficiency</li>
+              <li>Law of conservation of energy</li>
+            </ul>
+
+            <div class="file-section">
+              <div class="file-section-title">📚 Chapter Materials</div>
+              <div class="file-list">
+                <!-- PASTE YOUR WORK AND ENERGY NOTES PDF LINK HERE -->
+                <a href="files/work-energy-notes.pdf" target="_blank" class="file-link">📄 Chapter Notes (PDF)</a>
+
+                <!-- PASTE YOUR WORK AND ENERGY ASSIGNMENT LINK HERE -->
+                <a href="files/work-energy-assignment.pdf" target="_blank" class="file-link">📝 Assignment_4.pdf</a>
+
+                <!-- PASTE YOUR WORK AND ENERGY LAB LINK HERE -->
+                <a href="files/work-energy-lab.docx" target="_blank" class="file-link">🧪 Energy_Lab_Procedure.docx</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CHAPTER 5: SOUND -->
+          <article class="chapter-card" style="grid-column: 1 / -1;">
+            <h3>5. Sound</h3>
+            <p>Understanding sound production, propagation, characteristics, and applications in daily life.</p>
+            <ul class="topics">
+              <li>Production of sound</li>
+              <li>Propagation through mediums</li>
+              <li>Speed of sound</li>
+              <li>Reflection and echo</li>
+            </ul>
+
+            <div class="file-section">
+              <div class="file-section-title">📚 Chapter Materials</div>
+              <div class="file-list">
+                <!-- PASTE YOUR SOUND NOTES PDF LINK HERE -->
+                <a href="files/sound-notes.pdf" target="_blank" class="file-link">📄 Chapter Notes (PDF)</a>
+
+                <!-- PASTE YOUR SOUND ASSIGNMENT LINK HERE -->
+                <a href="files/sound-assignment.pdf" target="_blank" class="file-link">📝 Assignment_5.pdf</a>
+
+                <!-- PASTE YOUR SOUND LAB GUIDE LINK HERE -->
+                <a href="files/sound-lab-guide.docx" target="_blank" class="file-link">🧪 Sound_Experiment_Guide.docx</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Resource center</div>
+          <h2>All Files and Study Materials</h2>
+          <p>
+            Filter and find the exact file type you need, whether it's notes, homework, or a lab report for a specific chapter.
+          </p>
+        </div>
+
+        <div class="resources-controls" aria-label="Filter resources">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="notes">Notes</button>
+          <button class="filter-btn" data-filter="homework">Homework</button>
+          <button class="filter-btn" data-filter="lab">Lab Reports</button>
+        </div>
+
+        <div class="resources-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Chapter</th>
+                <th>Type</th>
+                <th>File</th>
+                <th>Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="resource-row" data-type="notes">
+                <td>Motion</td>
+                <td><span class="tag">Notes</span></td>
+                <td>Chapter Notes (PDF)</td>
+                <td><a href="files/motion-notes.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="homework">
+                <td>Motion</td>
+                <td><span class="tag">Homework</span></td>
+                <td>Assignment_1.pdf</td>
+                <td><a href="files/motion-assignment-1.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="lab">
+                <td>Motion</td>
+                <td><span class="tag">Lab Reports</span></td>
+                <td>Lab_Experiment_Guide.docx</td>
+                <td><a href="files/motion-lab-guide.docx" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="notes">
+                <td>Force and Laws of Motion</td>
+                <td><span class="tag">Notes</span></td>
+                <td>Chapter Notes (PDF)</td>
+                <td><a href="files/force-laws-notes.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="homework">
+                <td>Force and Laws of Motion</td>
+                <td><span class="tag">Homework</span></td>
+                <td>Assignment_2.pdf</td>
+                <td><a href="files/force-laws-assignment.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="lab">
+                <td>Force and Laws of Motion</td>
+                <td><span class="tag">Lab Reports</span></td>
+                <td>Lab_Report_Template.docx</td>
+                <td><a href="files/force-lab-report.docx" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="notes">
+                <td>Gravitation</td>
+                <td><span class="tag">Notes</span></td>
+                <td>Chapter Notes (PDF)</td>
+                <td><a href="files/gravitation-notes.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="homework">
+                <td>Gravitation</td>
+                <td><span class="tag">Homework</span></td>
+                <td>Homework_Set.pdf</td>
+                <td><a href="files/gravitation-homework.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="lab">
+                <td>Gravitation</td>
+                <td><span class="tag">Lab Reports</span></td>
+                <td>Gravity_Experiment_Guide.docx</td>
+                <td><a href="files/gravitation-lab.docx" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="notes">
+                <td>Work and Energy</td>
+                <td><span class="tag">Notes</span></td>
+                <td>Chapter Notes (PDF)</td>
+                <td><a href="files/work-energy-notes.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="homework">
+                <td>Work and Energy</td>
+                <td><span class="tag">Homework</span></td>
+                <td>Assignment_4.pdf</td>
+                <td><a href="files/work-energy-assignment.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="lab">
+                <td>Work and Energy</td>
+                <td><span class="tag">Lab Reports</span></td>
+                <td>Energy_Lab_Procedure.docx</td>
+                <td><a href="files/work-energy-lab.docx" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="notes">
+                <td>Sound</td>
+                <td><span class="tag">Notes</span></td>
+                <td>Chapter Notes (PDF)</td>
+                <td><a href="files/sound-notes.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="homework">
+                <td>Sound</td>
+                <td><span class="tag">Homework</span></td>
+                <td>Assignment_5.pdf</td>
+                <td><a href="files/sound-assignment.pdf" target="_blank">Open</a></td>
+              </tr>
+
+              <tr class="resource-row" data-type="lab">
+                <td>Sound</td>
+                <td><span class="tag">Lab Reports</span></td>
+                <td>Sound_Experiment_Guide.docx</td>
+                <td><a href="files/sound-lab-guide.docx" target="_blank">Open</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>Physics Hub • Class 9 Science Resources</div>
+      <div class="status">🛠️ Site in Progress</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Resource filtering
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const rows = document.querySelectorAll(".resource-row");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        rows.forEach((row) => {
+          const type = row.dataset.type;
+          const show = filter === "all" || type === filter;
+          row.classList.toggle("hidden", !show);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
